@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import api from '../services/api';
+
+const useStyles = makeStyles((theme) => ({
+    fab: {
+      position: 'absolute',
+      bottom: theme.spacing(2),
+      right: theme.spacing(2),
+    },
+  }));
 
 const Home = (props) => {
 
@@ -36,11 +47,10 @@ const Home = (props) => {
         loadAllArticles();
     }, [articles]);
 
+    
+    const classes = useStyles();
     return (
         <>
-            <Link className="button-globo" to="/add-article">
-                Nova Noticia
-            </Link>
             <ul>
                 {
                     articles.map((article, i) => (
@@ -60,6 +70,12 @@ const Home = (props) => {
                     ))
                 }
             </ul>
+
+            <Link to="/add-article">
+                <Fab color="primary" aria-label="Adicionar Noticia" className={classes.fab}>
+                    <AddIcon />
+                </Fab>
+            </Link>
         </>
     );
 }
