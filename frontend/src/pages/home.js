@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
 import { useHistory, Link } from 'react-router-dom';
+import api from '../services/api';
 
 const Home = (props) => {
 
     let history = useHistory();
-
     const [articles, setArticle] = useState([]);
 
+    // Carrega todas as noticias
     const loadAllArticles = async () => {
         await api.get("articles")
             .then(res => {
@@ -15,12 +15,14 @@ const Home = (props) => {
             })
     }
 
+    // Envia para pagina de edicao
     const handleEditArticle = (id) => {
         history.push({
             pathname: `/edit-article/${id}`,
         });
     }
 
+    // Deleta noticia selecionada
     const handleDeleteArticle = async (id) => {
         try {
             await api.delete(`articles/${id}`);

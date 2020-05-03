@@ -1,21 +1,20 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './global.css';
-// Pages
-import News from './components/pages/home';
-import AddArticle from './components/pages/addArticle';
-import Error404 from './components/pages/error404'
+import Routes from './routes';
+import Header from './components/header'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 function App() {
 	return (
-		<BrowserRouter>
-			<Switch>
-				<Route exact path="/"  component={News} />
-				<Route path="/add-article" component={AddArticle} />
-				<Route path="/edit-article/:id" component={AddArticle} />
-				<Route path='*' component={Error404} />
-			</Switch>
-		</BrowserRouter>
+		<>
+			<Header/>
+			<Container fixed>
+				<Routes />
+			</Container>
+		</>
 	);
 }
 

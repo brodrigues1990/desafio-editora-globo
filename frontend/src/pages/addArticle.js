@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
 import { useHistory } from 'react-router-dom'
+import api from '../services/api';
 
 const AddArticle = (props) => {
 
     let history = useHistory();
-    const ArticleId = props.match.params.id;
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+
+    const ArticleId = props.match.params.id;
     const data = {
         title,
         content
     }
-    
+
     async function handleArticle(e) {
         e.preventDefault();
-        
-        if(ArticleId !== undefined){
+
+        if (ArticleId !== undefined) {
             // Editar Noticia
             try {
                 await api.put(`articles/${ArticleId}`, data);
@@ -24,7 +25,7 @@ const AddArticle = (props) => {
             } catch (err) {
                 alert("erro na edicao");
             }
-        }else{
+        } else {
             // Salvar Noticia
             try {
                 await api.post(`articles`, data);
@@ -33,8 +34,8 @@ const AddArticle = (props) => {
                 alert("erro no cadastro");
             }
         }
-        
-        
+
+
     }
 
     const loadArticlesEdit = async (ArticleId) => {
@@ -46,7 +47,7 @@ const AddArticle = (props) => {
     }
 
     useEffect(() => {
-        
+
         if (ArticleId) {
             loadArticlesEdit(ArticleId);
         }
