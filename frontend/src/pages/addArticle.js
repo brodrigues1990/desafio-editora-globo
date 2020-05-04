@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import SaveIcon from '@material-ui/icons/Save';
 import api from '../services/api';
+
+const useStyles = makeStyles((theme) => ({
+    fab: {
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
+}));
 
 const AddArticle = (props) => {
 
@@ -53,14 +64,13 @@ const AddArticle = (props) => {
         }
     }, []);
 
-
-
+    const classes = useStyles();
     return (
         <>
             <span>
                 NOVA NOTICIA
             </span>
-            <form onSubmit={handleArticle}>
+            <form>
                 <input
                     placeholder="Titulo"
                     value={title}
@@ -71,7 +81,11 @@ const AddArticle = (props) => {
                     value={content}
                     onChange={e => setContent(e.target.value)}
                 />
-                <button type="submit">Salvar</button>
+
+                <Fab color="primary" className={classes.fab} onClick={(e) => handleArticle(e)}>
+                    <SaveIcon/>
+                </Fab>
+
             </form>
         </>
     );
