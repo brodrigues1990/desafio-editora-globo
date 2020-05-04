@@ -48,9 +48,9 @@ const Home = (props) => {
         try {
             await api.delete(`articles/${id}`);
             setArticle(articles.filter(article => article.id !== id));
-            ToastsStore.warning("Usuario deletado!");
+            ToastsStore.warning(`Noticia deletada`);
         } catch (err) {
-            ToastsStore.error("erro ao deletar");
+            ToastsStore.error("Erro ao deletar");
         }
     }
 

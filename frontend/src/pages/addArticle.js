@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(2, 2),
     },
     textField: {
-        width: '70%',
+        width: '80%',
     },
     closeIcon: {
         textAlign: 'right',
@@ -46,7 +46,7 @@ const AddArticle = (props) => {
     async function handleArticle(e) {
         e.preventDefault();
         if (data.title === null || data.title === '' || data.content === null || data.content === '') {
-            ToastsStore.error("erro no cadastro: campos vazios");
+            ToastsStore.error("Erro no cadastro: campos vazios");
         } else {
             try {
                 if (ArticleId !== undefined) {
@@ -58,7 +58,7 @@ const AddArticle = (props) => {
                 }
                 history.goBack();
             } catch (err) {
-                ToastsStore.error("erro na edição");
+                ToastsStore.error("Erro na edição");
             }
 
         }
@@ -108,7 +108,7 @@ const AddArticle = (props) => {
                                 defaultValue={content}
                                 variant="outlined"
                                 multiline
-                                rows={4}
+                                rows={15}
                                 onChange={e => setContent(e.target.value)}
                                 InputLabelProps={{
                                     shrink: true,
