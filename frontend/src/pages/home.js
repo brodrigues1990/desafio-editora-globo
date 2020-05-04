@@ -18,7 +18,7 @@ import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     fab: {
-        position: 'absolute',
+        position: 'fixed',
         bottom: theme.spacing(2),
         right: theme.spacing(2),
     },
@@ -123,7 +123,7 @@ const Home = (props) => {
 
 
             <Link to="/add-article">
-                <Fab color="primary" aria-label="Adicionar Noticia" className={classes.fab}>
+                <Fab color="primary"  fixed aria-label="Adicionar Noticia" className={classes.fab}>
                     <AddIcon />
                 </Fab>
             </Link>
