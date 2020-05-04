@@ -27,7 +27,6 @@ const AddArticle = (props) => {
     }
 
     async function handleArticle(e) {
-        console.log(data.title);
         e.preventDefault();
         if (data.title === null || data.title === '' || data.content === null || data.content === '') {
             alert("erro no cadastro: campos vazios");

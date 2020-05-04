@@ -67,8 +67,6 @@ const Home = (props) => {
 
 
     const classes = useStyles();
-    const dateToFormat = '1976-04-19T12:59-0500';
-    console.log();
 
     return (
         <>
