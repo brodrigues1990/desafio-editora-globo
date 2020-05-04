@@ -15,6 +15,7 @@ import DeleteIcon  from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import api from '../services/api';
 import { grey } from '@material-ui/core/colors';
+import { format } from 'date-fns'
 
 const useStyles = makeStyles((theme) => ({
     fab: {
@@ -40,7 +41,6 @@ const Home = (props) => {
         await api.get("articles")
             .then(res => {
                 setArticle(res.data);
-                console.log(res.data);
             })
     }
 
@@ -67,31 +67,13 @@ const Home = (props) => {
 
 
     const classes = useStyles();
+    const dateToFormat = '1976-04-19T12:59-0500';
+    console.log();
 
     return (
         <>
-            {/* <ul>
-                {
-                    articles.map((article, i) => (
-                        <li key={i} className="card">
-                            <strong>Titulo:</strong>
-                            <div className="card-content">{article.title}</div>
-                            <div className="card-content">{article.content}</div>
-                            <div className="card-content">{article.createdAt}</div>
-                            <div className="card-content">{article.id}</div>
-                            <button onClick={() => handleEditArticle(article.id)} type="button">
-                                {`editar ${article.id}`}
-                            </button>
-                            <button onClick={() => handleDeleteArticle(article.id)} type="button">
-                                {`deletar ${article.id}`}
-                            </button>
-                        </li>
-                    ))
-                }
-            </ul> */}
-
             <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
+                <Table className={classes.table}>
                     <TableHead>
                         <TableRow className={classes.tableRow}>
                             <TableCell align="left">Título</TableCell>
@@ -105,7 +87,7 @@ const Home = (props) => {
                             <TableRow key={article.id}>
                                 <TableCell component="th" scope="row">{article.title}</TableCell>
                                 <TableCell align="left">{article.content}</TableCell>
-                                <TableCell align="left">{article.createdAt}</TableCell>
+                                <TableCell align="left">{format(new Date(article.createdAt), 'dd/MM/yyyy')}</TableCell>
                                 <TableCell align="right">
                                     <IconButton color="primary" component="span" onClick={() => handleEditArticle(article.id)}>
                                         <EditIcon />
@@ -120,10 +102,8 @@ const Home = (props) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-
-
             <Link to="/add-article">
-                <Fab color="primary"  fixed aria-label="Adicionar Noticia" className={classes.fab}>
+                <Fab color="primary" aria-label="Adicionar Noticia" className={classes.fab}>
                     <AddIcon />
                 </Fab>
             </Link>

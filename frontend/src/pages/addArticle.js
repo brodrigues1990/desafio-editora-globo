@@ -4,10 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import SaveIcon from '@material-ui/icons/Save';
 import api from '../services/api';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
     fab: {
-        position: 'absolute',
+        position: 'fixed',
         bottom: theme.spacing(2),
         right: theme.spacing(2),
     },
@@ -26,27 +27,25 @@ const AddArticle = (props) => {
     }
 
     async function handleArticle(e) {
+        console.log(data.title);
         e.preventDefault();
-
-        if (ArticleId !== undefined) {
-            // Editar Noticia
+        if (data.title === null || data.title === '' || data.content === null || data.content === '') {
+            alert("erro no cadastro: campos vazios");
+        } else {
             try {
-                await api.put(`articles/${ArticleId}`, data);
+                if (ArticleId !== undefined) {
+                    // Editar Noticia
+                    await api.put(`articles/${ArticleId}`, data);
+                } else {
+                    // Salvar Noticia
+                    await api.post(`articles`, data);
+                }
                 history.goBack();
             } catch (err) {
                 alert("erro na edicao");
             }
-        } else {
-            // Salvar Noticia
-            try {
-                await api.post(`articles`, data);
-                history.goBack();
-            } catch (err) {
-                alert("erro no cadastro");
-            }
+
         }
-
-
     }
 
     const loadArticlesEdit = async (ArticleId) => {
@@ -57,8 +56,7 @@ const AddArticle = (props) => {
             })
     }
 
-    useEffect(() => {
-
+    useEffect((ArticleId) => {
         if (ArticleId) {
             loadArticlesEdit(ArticleId);
         }
@@ -67,26 +65,26 @@ const AddArticle = (props) => {
     const classes = useStyles();
     return (
         <>
-            <span>
-                NOVA NOTICIA
-            </span>
-            <form>
-                <input
-                    placeholder="Titulo"
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
-                />
-                <textarea
-                    placeholder="Conteudo"
-                    value={content}
-                    onChange={e => setContent(e.target.value)}
-                />
+            <Paper elevation={2}>
+                <form>
+                    <input
+                        placeholder="Titulo"
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
+                    />
+                    <textarea
+                        placeholder="Conteudo"
+                        value={content}
+                        onChange={e => setContent(e.target.value)}
+                    />
 
-                <Fab color="primary" className={classes.fab} onClick={(e) => handleArticle(e)}>
-                    <SaveIcon/>
-                </Fab>
 
-            </form>
+
+                </form>
+            </Paper>
+            <Fab color="primary" className={classes.fab} onClick={(e) => handleArticle(e)}>
+                <SaveIcon />
+            </Fab>
         </>
     );
 }
