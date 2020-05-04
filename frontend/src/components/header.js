@@ -8,10 +8,10 @@ import Logo from '../assets/LogoInfoGlobo.png'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        marginBottom: 30
+        marginBottom: 35
     },
     image: {
-        height: 30,
+        height: 33,
     },
 }));
 

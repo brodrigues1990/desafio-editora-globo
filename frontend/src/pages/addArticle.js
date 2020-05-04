@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Fab, Paper, TextField, Grid } from '@material-ui/core';
-import SaveIcon from '@material-ui/icons/Save';
+import { Save as SaveIcon, Close as CloseIcon } from '@material-ui/icons';
 import api from '../services/api';
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts'
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
     fab: {
         position: 'fixed',
         bottom: theme.spacing(2),
         right: theme.spacing(2),
     },
+    form: {
+        width: '100%',
+
+    },
+    textGrid: {
+        width: '100%',
+        margin: theme.spacing(2, 2),
+    },
+    textField:{
+        width: '70%',
+    },
+    closeIcon: {
+        textAlign: 'right',
+    }
 }));
 
 const AddArticle = (props) => {
 
+    const classes = useStyles();
     let history = useHistory();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -61,17 +79,18 @@ const AddArticle = (props) => {
         }
     }, []);
 
-    const classes = useStyles();
-    console.log(title);
-    console.log(content);
     return (
         <>
             <Paper elevation={2}>
                 <Grid container>
-                    <Grid xs>
-                        <form className={classes.root} autoComplete="on">
+                    <Grid container item className={classes.textGrid} justify="flex-end">
+                        <Link to="/">
+                            <CloseIcon color="action" style={{ fontSize: 30 }} />
+                        </Link>
+                    </Grid>
+                    <form className={classes.form} autoComplete="on">
+                        <Grid container item className={classes.textGrid} justify="center">
                             <TextField
-                                id="outlined-multiline"
                                 label="Titulo"
                                 defaultValue={title}
                                 variant="outlined"
@@ -81,9 +100,11 @@ const AddArticle = (props) => {
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
+                                className={classes.textField}
                             />
+                        </Grid>
+                        <Grid container className={classes.textGrid} item justify="center">
                             <TextField
-                                id="outlined-multiline-static"
                                 label="Conteudo"
                                 defaultValue={content}
                                 variant="outlined"
@@ -93,9 +114,10 @@ const AddArticle = (props) => {
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
+                                className={classes.textField}
                             />
-                        </form>
-                    </Grid>
+                        </Grid>
+                    </form>
                 </Grid>
             </Paper>
             <Fab color="primary" className={classes.fab} onClick={(e) => handleArticle(e)}>

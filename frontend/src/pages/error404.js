@@ -12,7 +12,7 @@ const Error404 = () => {
             <Paper elevation={2}>
                 <Grid container justify="center" >
                     <Grid item >
-                        <img src={ErrorImage}/>
+                        <img src={ErrorImage} />
                     </Grid>
                     <Grid item >
                         Nenhum resultado para <strong>{location.pathname}</strong>
