@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
+import { Fab, Paper, TextField, Grid } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import api from '../services/api';
-import Paper from '@material-ui/core/Paper';
+import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts'
 
 const useStyles = makeStyles((theme) => ({
     fab: {
@@ -29,7 +29,7 @@ const AddArticle = (props) => {
     async function handleArticle(e) {
         e.preventDefault();
         if (data.title === null || data.title === '' || data.content === null || data.content === '') {
-            alert("erro no cadastro: campos vazios");
+            ToastsStore.error("erro no cadastro: campos vazios");
         } else {
             try {
                 if (ArticleId !== undefined) {
@@ -41,7 +41,7 @@ const AddArticle = (props) => {
                 }
                 history.goBack();
             } catch (err) {
-                alert("erro na edicao");
+                ToastsStore.error("erro na edição");
             }
 
         }
@@ -55,35 +55,53 @@ const AddArticle = (props) => {
             })
     }
 
-    useEffect((ArticleId) => {
+    useEffect(() => {
         if (ArticleId) {
             loadArticlesEdit(ArticleId);
         }
     }, []);
 
     const classes = useStyles();
+    console.log(title);
+    console.log(content);
     return (
         <>
             <Paper elevation={2}>
-                <form>
-                    <input
-                        placeholder="Titulo"
-                        value={title}
-                        onChange={e => setTitle(e.target.value)}
-                    />
-                    <textarea
-                        placeholder="Conteudo"
-                        value={content}
-                        onChange={e => setContent(e.target.value)}
-                    />
-
-
-
-                </form>
+                <Grid container>
+                    <Grid xs>
+                        <form className={classes.root} autoComplete="on">
+                            <TextField
+                                id="outlined-multiline"
+                                label="Titulo"
+                                defaultValue={title}
+                                variant="outlined"
+                                multiline
+                                rows={1}
+                                onChange={e => setTitle(e.target.value)}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Conteudo"
+                                defaultValue={content}
+                                variant="outlined"
+                                multiline
+                                rows={4}
+                                onChange={e => setContent(e.target.value)}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                        </form>
+                    </Grid>
+                </Grid>
             </Paper>
             <Fab color="primary" className={classes.fab} onClick={(e) => handleArticle(e)}>
                 <SaveIcon />
             </Fab>
+            <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.TOP_RIGHT} lightBackground />
         </>
     );
 }

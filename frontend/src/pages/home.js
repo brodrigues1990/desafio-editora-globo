@@ -1,34 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Fab from '@material-ui/core/Fab';
-import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon  from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
-import api from '../services/api';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Fab, IconButton } from '@material-ui/core';
+import {Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon} from '@material-ui/icons';
 import { grey } from '@material-ui/core/colors';
+import api from '../services/api';
 import { format } from 'date-fns'
+import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts'
 
 const useStyles = makeStyles((theme) => ({
-    fab: {
-        position: 'fixed',
-        bottom: theme.spacing(2),
-        right: theme.spacing(2),
-    },
     table: {
         minWidth: 650,
     },
     tableRow: {
         background: grey[100]
-    }
+    },
+    fab: {
+        position: 'fixed',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
 }));
 
 const Home = (props) => {
@@ -56,8 +47,9 @@ const Home = (props) => {
         try {
             await api.delete(`articles/${id}`);
             setArticle(articles.filter(article => article.id !== id));
+            ToastsStore.warning("Usuario deletado!");
         } catch (err) {
-            alert('Erro ao deletar')
+            ToastsStore.error("erro ao deletar");
         }
     }
 
@@ -94,7 +86,6 @@ const Home = (props) => {
                                         <DeleteIcon />
                                     </IconButton>
                                 </TableCell>
-
                             </TableRow>
                         ))}
                     </TableBody>
@@ -105,6 +96,7 @@ const Home = (props) => {
                     <AddIcon />
                 </Fab>
             </Link>
+            <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.TOP_RIGHT} lightBackground />
         </>
     );
 }
