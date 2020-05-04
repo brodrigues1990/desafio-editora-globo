@@ -17,13 +17,12 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: '100%',
-
     },
     textGrid: {
         width: '100%',
         margin: theme.spacing(2, 2),
     },
-    textField:{
+    textField: {
         width: '70%',
     },
     closeIcon: {
