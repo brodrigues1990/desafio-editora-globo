@@ -36,13 +36,14 @@ const AddArticle = (props) => {
     let history = useHistory();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
+    const createdAt = new Date();
     const ArticleId = props.match.params.id;
     const data = {
         title,
-        content
+        content,
+        createdAt
     }
-
+    
     async function handleArticle(e) {
         e.preventDefault();
         if (data.title === null || data.title === '' || data.content === null || data.content === '') {
