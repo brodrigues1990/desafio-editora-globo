@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/desafio-editora-globo/precache-manifest.d066c269ff73c9a089879af3f712f2e5.js"
+  "/desafio-editora-globo/precache-manifest.84ec8801c49d83a5512242de35e1a8d3.js"
 );
 
 self.addEventListener('message', (event) => {

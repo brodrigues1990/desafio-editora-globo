@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/desafio-editora-globo/static/css/main.879dcb41.chunk.css",
-    "main.js": "/desafio-editora-globo/static/js/main.6f932f6f.chunk.js",
-    "main.js.map": "/desafio-editora-globo/static/js/main.6f932f6f.chunk.js.map",
+    "main.js": "/desafio-editora-globo/static/js/main.81361494.chunk.js",
+    "main.js.map": "/desafio-editora-globo/static/js/main.81361494.chunk.js.map",
     "runtime-main.js": "/desafio-editora-globo/static/js/runtime-main.83d0876e.js",
     "runtime-main.js.map": "/desafio-editora-globo/static/js/runtime-main.83d0876e.js.map",
     "static/js/2.1eb67643.chunk.js": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js",
     "static/js/2.1eb67643.chunk.js.map": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js.map",
     "index.html": "/desafio-editora-globo/index.html",
-    "precache-manifest.d066c269ff73c9a089879af3f712f2e5.js": "/desafio-editora-globo/precache-manifest.d066c269ff73c9a089879af3f712f2e5.js",
+    "precache-manifest.84ec8801c49d83a5512242de35e1a8d3.js": "/desafio-editora-globo/precache-manifest.84ec8801c49d83a5512242de35e1a8d3.js",
     "service-worker.js": "/desafio-editora-globo/service-worker.js",
     "static/css/main.879dcb41.chunk.css.map": "/desafio-editora-globo/static/css/main.879dcb41.chunk.css.map",
     "static/js/2.1eb67643.chunk.js.LICENSE.txt": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.83d0876e.js",
     "static/js/2.1eb67643.chunk.js",
     "static/css/main.879dcb41.chunk.css",
-    "static/js/main.6f932f6f.chunk.js"
+    "static/js/main.81361494.chunk.js"
   ]
 }

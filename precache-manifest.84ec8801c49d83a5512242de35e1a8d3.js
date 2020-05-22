@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3bd0c59e2f21b14fe1055a9dbc67cab6",
+    "revision": "0c00df6f491074b81a2ca1eaff305a28",
     "url": "/desafio-editora-globo/index.html"
   },
   {
-    "revision": "1b69c159e1568aca644f",
+    "revision": "d0967cfcf16227c49089",
     "url": "/desafio-editora-globo/static/css/main.879dcb41.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1b69c159e1568aca644f",
-    "url": "/desafio-editora-globo/static/js/main.6f932f6f.chunk.js"
+    "revision": "d0967cfcf16227c49089",
+    "url": "/desafio-editora-globo/static/js/main.81361494.chunk.js"
   },
   {
     "revision": "cfeed33f7480155557bc",
