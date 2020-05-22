@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pokestore/static/css/main.879dcb41.chunk.css",
-    "main.js": "/pokestore/static/js/main.6f932f6f.chunk.js",
-    "main.js.map": "/pokestore/static/js/main.6f932f6f.chunk.js.map",
-    "runtime-main.js": "/pokestore/static/js/runtime-main.04717ed2.js",
-    "runtime-main.js.map": "/pokestore/static/js/runtime-main.04717ed2.js.map",
-    "static/js/2.1eb67643.chunk.js": "/pokestore/static/js/2.1eb67643.chunk.js",
-    "static/js/2.1eb67643.chunk.js.map": "/pokestore/static/js/2.1eb67643.chunk.js.map",
-    "index.html": "/pokestore/index.html",
-    "precache-manifest.22c8d28d7e9f7bf3e38d9288650af0b2.js": "/pokestore/precache-manifest.22c8d28d7e9f7bf3e38d9288650af0b2.js",
-    "service-worker.js": "/pokestore/service-worker.js",
-    "static/css/main.879dcb41.chunk.css.map": "/pokestore/static/css/main.879dcb41.chunk.css.map",
-    "static/js/2.1eb67643.chunk.js.LICENSE.txt": "/pokestore/static/js/2.1eb67643.chunk.js.LICENSE.txt",
-    "static/media/LogoInfoGlobo.png": "/pokestore/static/media/LogoInfoGlobo.760e67a6.png",
-    "static/media/robotError404.png": "/pokestore/static/media/robotError404.3bdfb675.png"
+    "main.css": "/desafio-editora-globo/static/css/main.879dcb41.chunk.css",
+    "main.js": "/desafio-editora-globo/static/js/main.6f932f6f.chunk.js",
+    "main.js.map": "/desafio-editora-globo/static/js/main.6f932f6f.chunk.js.map",
+    "runtime-main.js": "/desafio-editora-globo/static/js/runtime-main.83d0876e.js",
+    "runtime-main.js.map": "/desafio-editora-globo/static/js/runtime-main.83d0876e.js.map",
+    "static/js/2.1eb67643.chunk.js": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js",
+    "static/js/2.1eb67643.chunk.js.map": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js.map",
+    "index.html": "/desafio-editora-globo/index.html",
+    "precache-manifest.d066c269ff73c9a089879af3f712f2e5.js": "/desafio-editora-globo/precache-manifest.d066c269ff73c9a089879af3f712f2e5.js",
+    "service-worker.js": "/desafio-editora-globo/service-worker.js",
+    "static/css/main.879dcb41.chunk.css.map": "/desafio-editora-globo/static/css/main.879dcb41.chunk.css.map",
+    "static/js/2.1eb67643.chunk.js.LICENSE.txt": "/desafio-editora-globo/static/js/2.1eb67643.chunk.js.LICENSE.txt",
+    "static/media/LogoInfoGlobo.png": "/desafio-editora-globo/static/media/LogoInfoGlobo.760e67a6.png",
+    "static/media/robotError404.png": "/desafio-editora-globo/static/media/robotError404.3bdfb675.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.04717ed2.js",
+    "static/js/runtime-main.83d0876e.js",
     "static/js/2.1eb67643.chunk.js",
     "static/css/main.879dcb41.chunk.css",
     "static/js/main.6f932f6f.chunk.js"
