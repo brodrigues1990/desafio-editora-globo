@@ -1,7 +1,7 @@
 {
   "name": "frontend-infoglobo",
   "version": "0.1.0",
-  "homepage": "https://brodrigues1990.github.io/pokestore/",
+  "homepage": "https://brodrigues1990.github.io/desafioEditoraGlobo/",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
