@@ -10,6 +10,7 @@ export default function Routes() {
         <BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={Home} />
+				<Route path="/desafio-editora-globo" component={Home} />
 				<Route path="/add-article" component={AddArticle} />
 				<Route path="/edit-article/:id" component={AddArticle} />
 				<Route path='*' component={Error404} />
