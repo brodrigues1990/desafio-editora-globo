@@ -10,7 +10,7 @@
   "dependencies": {
     "esm": "^3.2.25",
     "mongoose": "^5.8.7",
-    "pm2": "^4.2.1",
+    "pm2": "^5.2.0",
     "restify": "^8.5.1"
   },
   "devDependencies": {
